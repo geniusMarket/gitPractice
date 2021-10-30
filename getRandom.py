@@ -21,19 +21,28 @@ def getRandom(level):
     if level == 1:
         for i in range(N):
                 compute = compute +str(res[i]) + random.choice(option_low)
+        for i in range(N):
+            left = random.randint(0, 2)
+            if left == 1:  # 左括号
+                compute = compute + '(' + str(res[i]) + random.choice(option_low) + \
+                              str(random.randint(0, 100)) + ')' + random.choice(option_low)
+            else:
+                compute = compute + str(res[i]) + random.choice(option_low)
+
 
     else:
         for i in range(N):
             compute = compute + str(res[i]) + random.choice(option)
 
+        for i in range(N):
+            left = random.randint(0, 2)
+            if left == 1:  # 左括号
 
-    for i in range(N):
-        left = random.randint(0, 2)
-        if left == 1:  # 左括号
-            compute = compute + '(' + str(res[i]) + random.choice(option)
-            compute = compute + str(res[i - 1]) + ')' + random.choice(option)
-        else:
-            compute = compute + str(res[i]) + random.choice(option)
+                compute = compute + '(' + str(res[i]) + random.choice(option) + \
+                              str(random.randint(0, 10000)) + ')' + random.choice(
+                        option)
+            else:
+                compute = compute + str(res[i]) + random.choice(option)
 
     return compute[:-1]
 
