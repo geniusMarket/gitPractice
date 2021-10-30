@@ -11,10 +11,9 @@ if __name__ == '__main__':
     print('请输入题目数：')
     num = int(input())
     allQuestion = getAllQuestion(level,num)
-
     WrongNum = 0
     for question in allQuestion:
-        outResult() # 打印题目
+        outResult(question) # 打印题目
         answer = eval(input())
         if  isCorrect(question,answer) == False:
             WrongNum += 1
