@@ -17,5 +17,7 @@ if __name__ == '__main__':
         answer = eval(input())
         if  isCorrect(question,answer) == False:
             WrongNum += 1
-
-    print('结束！错了{}题哦'.format(WrongNum))
+    if WrongNum == 0:
+        print('恭喜你！满分！')
+    else:
+        print('结束！错了{}题哦'.format(WrongNum))
